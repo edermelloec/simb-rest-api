@@ -3,8 +3,6 @@ package com.magossi.apisimb.domain.matriz;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.magossi.apisimb.domain.bovino.Bovino;
-import org.springframework.context.annotation.Lazy;
 
 import javax.persistence.*;
 import java.util.Date;

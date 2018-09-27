@@ -1,12 +1,11 @@
 package com.magossi.apisimb.domain.bovino;
 
-import com.fasterxml.jackson.annotation.*;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.magossi.apisimb.domain.matriz.FichaMatriz;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -68,7 +67,7 @@ public class Bovino implements Serializable {
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Peso> peso;
 
-    @JsonInclude(JsonInclude.Include.NON_NULL )
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     @OneToOne(cascade = CascadeType.ALL)
     private FichaMatriz fichaMatriz;
 
@@ -84,7 +83,6 @@ public class Bovino implements Serializable {
 
     @JsonInclude(JsonInclude.Include.NON_NULL)
     private Boolean status;
-
 
 
     public Bovino() {

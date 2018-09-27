@@ -4,16 +4,15 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
 import com.magossi.apisimb.domain.bovino.Bovino;
-
 import com.magossi.apisimb.domain.bovino.Desmama;
 import com.magossi.apisimb.domain.bovino.Ecc;
 import com.magossi.apisimb.domain.bovino.Peso;
 import com.magossi.apisimb.domain.matriz.FichaMatriz;
 import com.magossi.apisimb.domain.matriz.Inseminacao;
+import com.magossi.apisimb.gestao.GestaoRespositoryBanco;
 import com.magossi.apisimb.repository.bovino.DesmamaRepository;
 import com.magossi.apisimb.service.bovino.BovinoService;
 import com.magossi.apisimb.service.bovino.EccService;
-import com.magossi.apisimb.gestao.GestaoRespositoryBanco;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.http.HttpHeaders;
@@ -25,7 +24,9 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import java.net.URI;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 
 /**
  * Created by RafaelMq on 15/05/2016.
@@ -144,7 +145,7 @@ public class BovinoResources {
 
     @RequestMapping(method = RequestMethod.GET)
     public ResponseEntity<List<Bovino>> listar() {
- 
+
         List<Bovino> bovino = bovinoService.buscarTodos();
         return ResponseEntity.status(HttpStatus.OK).body(bovino);
     }

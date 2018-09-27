@@ -1,27 +1,24 @@
 package com.magossi.apisimb.domain.bovino;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.magossi.apisimb.domain.matriz.FichaMatriz;
-import javafx.beans.binding.LongExpression;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import java.util.Date;
 
 @Entity
 public class Desmama {
 
-    public Desmama(){
+    public Desmama() {
 
     }
+
     @JsonInclude(JsonInclude.Include.NON_NULL)
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idDesmama;
-
-
 
 
     @JsonInclude(JsonInclude.Include.NON_NULL)
@@ -62,6 +59,7 @@ public class Desmama {
     public void setStatus(Boolean status) {
         this.status = status;
     }
+
     public Date getDataDesmama() {
         return dataDesmama;
     }
