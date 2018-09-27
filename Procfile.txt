@@ -1,3 +1,1 @@
-web: java -jar -Dserver.port=$PORT target/people-on-map-site.war
-web: java -jar target/myapp-1.0.0.jar
-heroku ps:scale web=1 --app people-on-map-site
+web: java -jar src/main/java/com/magossi/apisimb/ApiSimbApplication.jar
