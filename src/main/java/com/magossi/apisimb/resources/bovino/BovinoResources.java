@@ -13,6 +13,8 @@ import com.magossi.apisimb.gestao.GestaoRespositoryBanco;
 import com.magossi.apisimb.repository.bovino.DesmamaRepository;
 import com.magossi.apisimb.service.bovino.BovinoService;
 import com.magossi.apisimb.service.bovino.EccService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.http.HttpHeaders;
@@ -34,7 +36,8 @@ import java.util.List;
 
 @SuppressWarnings("ALL")
 @RestController
-@RequestMapping("/bovino")
+@RequestMapping(value = "/bovino")
+@Api(value = "API REST Produtos")
 @CrossOrigin(origins = "*")
 public class BovinoResources {
 
@@ -144,7 +147,8 @@ public class BovinoResources {
 
     // ******************************** METODOS GET *******************************************************
 
-    @RequestMapping(method = RequestMethod.GET)
+    @RequestMapping(value = "/bovino",method = RequestMethod.GET)
+    @ApiOperation(value = "Retorna bovinos")
     public ResponseEntity<List<Bovino>> listar() {
 
         List<Bovino> bovino = bovinoService.buscarTodos();
@@ -152,6 +156,7 @@ public class BovinoResources {
     }
 
     @RequestMapping(value = "/ativos", method = RequestMethod.GET)
+    @ApiOperation(value = "Retorna bovinos ativos")
     public ResponseEntity<List<Bovino>> listarAtivos() {
 
         List<Bovino> bovino = bovinoService.buscarTodosAtivos();
