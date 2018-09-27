@@ -144,7 +144,7 @@ public class BovinoResources {
 
     @RequestMapping(method = RequestMethod.GET)
     public ResponseEntity<List<Bovino>> listar() {
-
+ 
         List<Bovino> bovino = bovinoService.buscarTodos();
         return ResponseEntity.status(HttpStatus.OK).body(bovino);
     }
