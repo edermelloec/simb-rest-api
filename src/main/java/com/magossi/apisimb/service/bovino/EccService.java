@@ -11,6 +11,7 @@ import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 /**
  * Created by RafaelMq on 03/11/2016.
@@ -30,7 +31,7 @@ public class EccService {
     public Ecc salvar(Ecc ecc){
         if(ecc.getIdECC() != null){
 
-            Ecc e = eccRepository.findOne(ecc.getIdECC());
+            Ecc e = eccRepository.buscarEccPorId(ecc.getIdECC());
             if(e != null){
                 throw new EccExistenteException("Ecc já Existe");
             }
@@ -49,7 +50,7 @@ public class EccService {
 
 
         try {
-            Ecc ecc = eccRepository.findOne(id);
+            Ecc ecc = eccRepository.buscarEccPorId(id);
             Bovino bovino = bovinoRepository.findByEcc(ecc);
             bovino.getEcc().remove(ecc);
             bovinoRepository.save(bovino);
@@ -61,7 +62,7 @@ public class EccService {
     }
 
     public Ecc buscarId(Long id){
-        Ecc ecc = eccRepository.findOne(id);
+        Ecc ecc = eccRepository.buscarEccPorId(id);
 
         if(ecc==null){
             throw new EccNaoEncontradoException("O Ecc não pode ser Encontrado");

@@ -22,20 +22,17 @@ public class FichaMatriz {
     private Long idFichaMatriz;
 
     @JsonInclude(JsonInclude.Include.NON_NULL)
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.ALL)
     private List<Inseminacao> inseminacao;
 
 
     @JsonInclude(JsonInclude.Include.NON_NULL)
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.ALL)
     private List<DiagnosticoGestacao> diagnosticoGestacao;
 
     @JsonInclude(JsonInclude.Include.NON_NULL)
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.ALL)
     private List<IntervaloParto> intervaloParto;
-
-
-
 
     @JsonProperty(access = JsonProperty.Access.READ_ONLY)
     private Date dataInclusao = new Date();

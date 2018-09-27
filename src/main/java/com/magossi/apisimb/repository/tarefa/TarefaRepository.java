@@ -30,4 +30,8 @@ public interface TarefaRepository extends JpaRepository<Tarefa, Long> {
     @Query("select t from Tarefa t where t.dataInclusao between ?1 and ?2  and t.status = true and t.statusDaTarefa = ?3")
     List<Tarefa> buscarPorData(Date data1, Date data2,Boolean t);
 
+    @Query("select t from Tarefa t where t.idTarefa = ?1")
+    Tarefa buscarPorId(Long id);
+
+
 }

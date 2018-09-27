@@ -24,7 +24,7 @@ public class RacaService {
     public Raca salvar(Raca raca){
         if(raca.getIdRaca() != null){
 
-            Raca p = racaRepository.findOne(raca.getIdRaca());
+            Raca p = racaRepository.buscarRacaPorId(raca.getIdRaca());
             if(p != null){
                 throw new RacaExistenteException("Raca já Existe");
             }

@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 /**
  * Created by RafaelMq on 04/11/2016.
@@ -24,7 +25,7 @@ public class InseminadorService {
     public Inseminador salvar(Inseminador inseminador){
         if(inseminador.getIdInseminador() != null){
 
-            Inseminador i = inseminadorRepository.findOne(inseminador.getIdInseminador());
+            Inseminador i = inseminadorRepository.buscarPorId(inseminador.getIdInseminador());
             if(i != null){
                 throw new FazendaExistenteException("Inseminador já Existe");
             }

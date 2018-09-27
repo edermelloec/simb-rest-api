@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 /**
  * Created by RafaelMq on 04/11/2016.
@@ -24,7 +25,7 @@ public class InterPartoService {
     public IntervaloParto salvar(IntervaloParto intervaloParto){
         if(intervaloParto.getIdIntervaloParto() != null){
 
-            IntervaloParto i = m_interPartoRepository.findOne(intervaloParto.getIdIntervaloParto());
+            IntervaloParto i = m_interPartoRepository.buscarPorId(intervaloParto.getIdIntervaloParto());
             if(i != null){
                 throw new FazendaExistenteException("Intervalo de Parto já Existe");
             }

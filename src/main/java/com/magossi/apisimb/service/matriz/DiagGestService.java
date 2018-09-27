@@ -25,7 +25,7 @@ public class DiagGestService {
     public DiagnosticoGestacao salvar(DiagnosticoGestacao diagGest){
         if(diagGest.getIdDiagGest() != null){
 
-            DiagnosticoGestacao d = diagGestRepository.findOne(diagGest.getIdDiagGest());
+            DiagnosticoGestacao d = diagGestRepository.buscaDiagGestPorId(diagGest.getIdDiagGest());
             if(d != null){
                 throw new FazendaExistenteException("Diagnostico de Gestação já Existe");
             }

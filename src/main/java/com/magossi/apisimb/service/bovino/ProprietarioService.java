@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 /**
  * Created by RafaelMq on 03/11/2016.
@@ -25,7 +26,7 @@ public class ProprietarioService {
     public Proprietario salvar(Proprietario proprietario){
         if(proprietario.getIdProprietario() != null){
 
-            Proprietario p = proprietarioRepository.findOne(proprietario.getIdProprietario());
+            Proprietario p = proprietarioRepository.buscarPorId(proprietario.getIdProprietario());
             if(p != null){
                 throw new ProprietarioExistenteException("Proprietario já Existe");
             }

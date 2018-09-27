@@ -158,7 +158,7 @@ public class BovinoService {
 
 
     public Bovino buscarId(Long id){
-        Bovino bovino = bovinoRepository.findOne(id);
+        Bovino bovino = bovinoRepository.buscarBovinoPorId(id);
 
         if(bovino==null){
             throw new BovinoNaoEncontradoException("Bovino não Encontrado");

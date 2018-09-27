@@ -12,4 +12,7 @@ import java.util.List;
 public interface FichaMatrizRepository extends JpaRepository<FichaMatriz, Long> {
     @Query("select f from FichaMatriz f where f.status=true order by f.idFichaMatriz")
     List<FichaMatriz> buscaMatrizAtiva();
+
+    @Query("select fm from FichaMatriz fm where fm.idFichaMatriz =?1 ")
+    FichaMatriz buscarPorId(Long id);
 }

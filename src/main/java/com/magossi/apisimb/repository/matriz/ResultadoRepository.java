@@ -21,4 +21,8 @@ public interface ResultadoRepository extends JpaRepository<Resultado, Long> {
 
     @Query("select r from Resultado r where r.idInseminacao = ?1")
     List<Resultado> buscarPorInseminacao(Long id);
+
+    @Query("select r from Resultado r where r.idResultado = ?1")
+    Resultado buscarPorId(Long id);
+
 }

@@ -24,7 +24,7 @@ public class FichaMatrizService {
     public FichaMatriz salvar(FichaMatriz fichaMatriz){
         if(fichaMatriz.getIdFichaMatriz() != null){
 
-            FichaMatriz f = fichaMatrizRepository.findOne(fichaMatriz.getIdFichaMatriz());
+            FichaMatriz f = fichaMatrizRepository.buscarPorId(fichaMatriz.getIdFichaMatriz());
             if(f != null){
                 throw new FazendaExistenteException("Ficha da Matriz já Existe");
             }

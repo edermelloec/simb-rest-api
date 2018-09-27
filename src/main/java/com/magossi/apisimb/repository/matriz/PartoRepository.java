@@ -25,4 +25,7 @@ public interface PartoRepository extends JpaRepository<Parto, Long> {
 
     @Query("select p from Parto p where p.idInseminacao = ?1")
     List<Parto> buscarPorId(Long id);
+
+    @Query("select p from Parto p where p.idParto = ?1")
+    Parto buscarPartoPorId(Long id);
 }

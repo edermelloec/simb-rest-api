@@ -15,6 +15,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 /**
  * Created by RafaelMq on 16/11/2016.
@@ -35,7 +36,7 @@ public class TarefaService {
     public Tarefa salvar(Tarefa tarefa){
         if(tarefa.getIdTarefa() != null){
 
-            Tarefa t = tarefaRepository.findOne(tarefa.getIdTarefa());
+            Tarefa t = tarefaRepository.buscarPorId(tarefa.getIdTarefa());
             if(t != null){
                 throw new BovinoExistenteException("Tarefa já Existe");
             }
@@ -52,7 +53,7 @@ public class TarefaService {
     public void deletar(Long id) {
 
         try {
-            Tarefa tarefa = tarefaRepository.findOne(id);
+            Tarefa tarefa = tarefaRepository.buscarPorId(id);
             tarefaRepository.delete(tarefa);
 
         } catch (EmptyResultDataAccessException e) {
@@ -63,7 +64,7 @@ public class TarefaService {
     public Tarefa atualizar(Tarefa tarefa){
         if(tarefa.getIdTarefa() != null){
 
-            Tarefa t = tarefaRepository.findOne(tarefa.getIdTarefa());
+            Tarefa t = tarefaRepository.buscarPorId(tarefa.getIdTarefa());
             if(t == null){
                 throw new BovinoExistenteException("Tarefa Nao Existe");
             }
@@ -72,7 +73,7 @@ public class TarefaService {
     }
 
     public Tarefa buscarId(Long id){
-        Tarefa tarefa = tarefaRepository.findOne(id);
+        Tarefa tarefa = tarefaRepository.buscarPorId(id);
 
         if(tarefa==null){
             throw new BovinoNaoEncontradoException("Tarefa não Encontrada");

@@ -11,6 +11,7 @@ import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 /**
  * Created by RafaelMq on 03/11/2016.
@@ -30,7 +31,7 @@ public class PesoService {
     public Peso salvar(Peso peso){
         if(peso.getIdPeso() != null){
 
-            Peso p = pesoRepository.findOne(peso.getIdPeso());
+            Peso p = pesoRepository.buscarPesoPorId(peso.getIdPeso());
             if(p != null){
                 throw new PesoExistenteException("Peso já Existe");
             }
@@ -47,7 +48,7 @@ public class PesoService {
 
     public Peso buscarId(Long id) {
 
-        Peso peso = pesoRepository.findOne(id);
+        Peso peso = pesoRepository.buscarPesoPorId(id);
 
         if(peso==null){
             throw new PesoNaoEncontradoException("O Peso não pode ser Encontrado");
@@ -58,7 +59,7 @@ public class PesoService {
 
     public void deletar(Long id) {
         try {
-            Peso peso = pesoRepository.findOne(id);
+            Peso peso = pesoRepository.buscarPesoPorId(id);
             Bovino bovino = bovinoRepository.findByPeso(peso);
             bovino.getPeso().remove(peso);
             bovinoRepository.save(bovino);

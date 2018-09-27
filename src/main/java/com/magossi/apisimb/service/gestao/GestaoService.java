@@ -77,7 +77,7 @@ public class GestaoService {
         Long l;
 
         Bovino bovino;
-        bovino = bovinoRepository.findOne(id);
+        bovino = bovinoRepository.buscarBovinoPorId(id);
         if(bovino.getFichaMatriz()!=null){
             bovino.getFichaMatriz().setStatus(false);
 
@@ -102,7 +102,7 @@ public class GestaoService {
         Long l;
 
         Bovino bovino;
-        bovino = bovinoRepository.findOne(id);
+        bovino = bovinoRepository.buscarBovinoPorId(id);
         if(bovino.getFichaMatriz()!=null){
             bovino.getFichaMatriz().setStatus(false);
 
@@ -148,7 +148,7 @@ public class GestaoService {
     public Morto salvarMorto(Morto morto) {
 
         Bovino bovino;
-        bovino = bovinoRepository.findOne(morto.getIdBovino());
+        bovino = bovinoRepository.buscarBovinoPorId(morto.getIdBovino());
         if(bovino.getFichaMatriz()!=null){
             bovino.getFichaMatriz().setStatus(false);
 

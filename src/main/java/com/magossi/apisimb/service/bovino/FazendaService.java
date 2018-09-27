@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 /**
  * Created by RafaelMq on 03/11/2016.
@@ -25,7 +26,7 @@ public class FazendaService {
     public Fazenda salvar(Fazenda fazenda){
         if(fazenda.getIdFazenda() != null){
 
-            Fazenda f = fazendaRepository.findOne(fazenda.getIdFazenda());
+            Fazenda f = fazendaRepository.buscarPorId(fazenda.getIdFazenda());
             if(f != null){
                 throw new FazendaExistenteException("Fazenda já Existe");
             }

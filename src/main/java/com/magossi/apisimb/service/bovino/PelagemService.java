@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 /**
  * Created by RafaelMq on 03/11/2016.
@@ -24,7 +25,7 @@ public class PelagemService {
     public Pelagem salvar(Pelagem pelagem){
         if(pelagem.getIdPelagem() != null){
 
-            Pelagem p = pelagemRepository.findOne(pelagem.getIdPelagem());
+            Pelagem p = pelagemRepository.buscarPorId(pelagem.getIdPelagem());
             if(p != null){
                 throw new PelagemExistenteException("Pelagem já Existe");
             }

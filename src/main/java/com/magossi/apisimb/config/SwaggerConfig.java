@@ -21,7 +21,7 @@ public class SwaggerConfig {
     public Docket productApi() {
         return new Docket(DocumentationType.SWAGGER_2)
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("com.magossi.apisimb.resources.bovino"))
+                .apis(RequestHandlerSelectors.basePackage("com.magossi.apisimb"))
                 .paths(regex("/bovino.*"))
                 .build()
                 .apiInfo(metaInfo());

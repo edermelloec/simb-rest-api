@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 /**
  * Created by RafaelMq on 04/11/2016.
@@ -32,7 +33,7 @@ public class PartoService {
     public Parto salvar(Parto parto) {
         if (parto.getIdParto() != null) {
 
-            Parto p = partoRepository.findOne(parto.getIdParto());
+            Parto p = partoRepository.buscarPartoPorId(parto.getIdParto());
             if (p != null) {
                 throw new FazendaExistenteException("Intervalo de Parto já Existe");
             }

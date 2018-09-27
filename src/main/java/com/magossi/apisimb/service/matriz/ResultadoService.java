@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 /**
  * Created by RafaelMq on 04/11/2016.
@@ -29,7 +30,7 @@ public class ResultadoService {
     public Resultado salvar(Resultado resultado){
         if(resultado.getIdResultado() != null){
 
-            Resultado r = resultadoRepository.findOne(resultado.getIdResultado());
+            Resultado r = resultadoRepository.buscarPorId(resultado.getIdResultado());
             if(r != null){
                 throw new FazendaExistenteException("Resultado já Existe");
             }

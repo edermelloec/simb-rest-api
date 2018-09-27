@@ -39,7 +39,7 @@ public class InseminacaoService {
 
         if(inseminacao.getIdInseminacao() != null){
 
-            Inseminacao i = inseminacaoRepository.findOne(inseminacao.getIdInseminacao());
+            Inseminacao i = inseminacaoRepository.buscarInseminacaoPorId(inseminacao.getIdInseminacao());
             if(i != null){
                 throw new FazendaExistenteException("Inseminação já Existe");
             }

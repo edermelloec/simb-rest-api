@@ -2,7 +2,6 @@ package com.magossi.apisimb.repository.bovino;
 
 import com.magossi.apisimb.domain.bovino.*;
 import com.magossi.apisimb.domain.matriz.FichaMatriz;
-import org.jboss.logging.annotations.Param;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
@@ -21,6 +20,7 @@ public interface BovinoRepository extends JpaRepository<Bovino, Long>{
 
                 return null;
         }
+
 
 
         //Bovino findByNomeBovino(String nome);
@@ -42,9 +42,12 @@ public interface BovinoRepository extends JpaRepository<Bovino, Long>{
         @Query("select b from Bovino b where b.status=true and b.fichaMatriz is not null order by b.fichaMatriz")
         List<Bovino> buscarMatrizInseminada();
 
-
         @Query("select b from Bovino b where b.fichaMatriz =?1 ")
         Bovino buscarPorIdMatriz(FichaMatriz fichaMatriz);
+
+        @Query("select b from Bovino b where b.idBovino =?1 ")
+        Bovino buscarBovinoPorId(Long id);
+
 
         @Query("select b from Bovino b where b.fichaMatriz is null and b.genero = false and b.status=true order by b.nomeBovino")
         List<Bovino> buscarPorFemea();
