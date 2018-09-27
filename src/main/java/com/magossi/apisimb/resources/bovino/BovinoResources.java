@@ -35,6 +35,7 @@ import java.util.List;
 @SuppressWarnings("ALL")
 @RestController
 @RequestMapping("/bovino")
+@CrossOrigin(origins = "*")
 public class BovinoResources {
 
 

@@ -2,10 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a1400e0e-e2cd-46b3-a1ad-562dc8f91ab9" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/magossi/apisimb/domain/bovino/Bovino.java" afterPath="$PROJECT_DIR$/src/main/java/com/magossi/apisimb/domain/bovino/Bovino.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/magossi/apisimb/domain/bovino/Desmama.java" afterPath="$PROJECT_DIR$/src/main/java/com/magossi/apisimb/domain/bovino/Desmama.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/magossi/apisimb/domain/matriz/FichaMatriz.java" afterPath="$PROJECT_DIR$/src/main/java/com/magossi/apisimb/domain/matriz/FichaMatriz.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/magossi/apisimb/domain/matriz/Resultado.java" afterPath="$PROJECT_DIR$/src/main/java/com/magossi/apisimb/domain/matriz/Resultado.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/magossi/apisimb/resources/bovino/BovinoResources.java" afterPath="$PROJECT_DIR$/src/main/java/com/magossi/apisimb/resources/bovino/BovinoResources.java" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
@@ -18,11 +14,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="BovinoResources.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="BovinoResources.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/magossi/apisimb/resources/bovino/BovinoResources.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="208">
-              <caret line="152" column="50" lean-forward="false" selection-start-line="152" selection-start-column="50" selection-end-line="152" selection-end-column="50" />
+            <state relative-caret-position="204">
+              <caret line="40" column="0" lean-forward="true" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -62,10 +58,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DiagnosticoGestacao.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="DiagnosticoGestacao.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/magossi/apisimb/domain/matriz/DiagnosticoGestacao.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
+            <state relative-caret-position="255">
               <caret line="19" column="55" lean-forward="true" selection-start-line="19" selection-start-column="55" selection-end-line="19" selection-end-column="55" />
               <folding />
             </state>
@@ -97,9 +93,9 @@
       <list>
         <option value="$PROJECT_DIR$/src/main/java/com/magossi/apisimb/domain/bovino/Desmama.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/magossi/apisimb/domain/bovino/Bovino.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/magossi/apisimb/resources/bovino/BovinoResources.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/magossi/apisimb/domain/matriz/FichaMatriz.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/magossi/apisimb/domain/matriz/Resultado.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/magossi/apisimb/resources/bovino/BovinoResources.java" />
       </list>
     </option>
   </component>
@@ -187,7 +183,16 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="apisimb" type="462c0819:PsiDirectoryNode" />
-              <item name="domain" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="api-simb" type="b2602c69:ProjectViewProjectNode" />
+              <item name="pg2-api-simb-master" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="apisimb" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
               <item name="bovino" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -333,12 +338,12 @@
       <workItem from="1537628448506" duration="973000" />
       <workItem from="1537822860773" duration="4595000" />
       <workItem from="1537920199066" duration="3420000" />
-      <workItem from="1538000325499" duration="9982000" />
+      <workItem from="1538000325499" duration="10665000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="21805000" />
+    <option name="totallyTimeSpent" value="22488000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -388,7 +393,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/magossi/apisimb/resources/bovino/BovinoResources.java</url>
-          <line>148</line>
+          <line>149</line>
           <properties />
           <option name="timeStamp" value="2" />
         </line-breakpoint>
@@ -521,14 +526,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/magossi/apisimb/resources/bovino/BovinoResources.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="152" column="50" lean-forward="false" selection-start-line="152" selection-start-column="50" selection-end-line="152" selection-end-column="50" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/magossi/apisimb/domain/matriz/FichaMatriz.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
@@ -547,8 +544,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/magossi/apisimb/domain/matriz/DiagnosticoGestacao.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
+        <state relative-caret-position="255">
           <caret line="19" column="55" lean-forward="true" selection-start-line="19" selection-start-column="55" selection-end-line="19" selection-end-column="55" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/magossi/apisimb/resources/bovino/BovinoResources.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="40" column="0" lean-forward="true" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
           <folding />
         </state>
       </provider>
