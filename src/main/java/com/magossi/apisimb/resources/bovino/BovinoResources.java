@@ -147,7 +147,7 @@ public class BovinoResources {
 
     // ******************************** METODOS GET *******************************************************
 
-    @RequestMapping(value = "/bovino",method = RequestMethod.GET)
+    @RequestMapping(method = RequestMethod.GET)
     @ApiOperation(value = "Retorna bovinos")
     public ResponseEntity<List<Bovino>> listar() {
 
@@ -164,8 +164,8 @@ public class BovinoResources {
     }
 
     @Scope("request")
-    @RequestMapping(value = "/{id}", method = RequestMethod.POST, produces="text/plain; application/json", consumes="text/plain; application/json")
-    public ResponseEntity<String> buscarBovinoPorId(@PathVariable("id") String id) throws JsonProcessingException {   //? encapsula qualquer tipo de objeto
+    @RequestMapping(value = "/bovino/{id}", method = RequestMethod.POST, produces="text/plain; application/json", consumes="text/plain; application/json")
+    public ResponseEntity<String> buscarBovinoPorIdTeste(@PathVariable("id") String id) throws JsonProcessingException {   //? encapsula qualquer tipo de objeto
 
         HttpHeaders headers = new HttpHeaders();
 //        headers.add("Content-Type", "text/json");
@@ -186,6 +186,16 @@ public class BovinoResources {
 
         return (new ResponseEntity<String>(json, headers, HttpStatus.OK));
 //        return ResponseEntity.status(HttpStatus.OK).body(bovino);
+    }
+
+
+    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
+    public ResponseEntity<Bovino> buscarBovinoPorId(@PathVariable("id") Long id) throws JsonProcessingException {   //? encapsula qualquer tipo de objeto
+
+        Bovino bovino = bovinoService.buscarId(id);
+
+
+        return ResponseEntity.status(HttpStatus.OK).body(bovino);
     }
 
     @RequestMapping(value = "/tag/{tag}", method = RequestMethod.GET)

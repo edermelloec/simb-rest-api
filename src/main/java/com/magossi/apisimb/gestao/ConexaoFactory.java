@@ -14,7 +14,7 @@ public class ConexaoFactory {
             Class.forName("org.postgresql.Driver");
 
             //Crie um conexao com o banco
-            Connection connection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/pg2-simb","postgres","postgres");
+            Connection connection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/simb-heroku","postgres","postgres");
 
             //Retorna conection
             return connection;

@@ -579,7 +579,7 @@ public class GestaoRespositoryBanco {
             Connection conexao = ConexaoFactory.criarConexao();
 
             sql = "SELECT min((DATE(p.data_parto)-DATE(b.data_nascimento))/30) AS DIASDECORRIDOS FROM bovino b\n" +
-                    "\t\tinner join parto p on p.id_ficha_matriz=b.ficha_matriz_idfichamatriz\n" +
+                    "\t\tinner join parto p on p.id_ficha_matriz=b.ficha_matriz_id_ficha_matriz\n" +
                     "\t\twhere upper(b.nome_bovino) like upper(" + "'%" + bovino + "')";
 
             PreparedStatement prepareStatement;
@@ -965,7 +965,7 @@ public class GestaoRespositoryBanco {
         try {
             Connection conexao = ConexaoFactory.criarConexao();
 
-            sql = "insert into bovino(id_bovino,data_inclusao,data_nascimento,genero,mae,nome_bovino,pai,status,tag,url_foto,fazenda_idfazenda,pelagem_idpelagem,proprietario_idproprietario,raca_idraca,situacao) \n" +
+            sql = "insert into bovino(id_bovino,data_inclusao,data_nascimento,genero,mae,nome_bovino,pai,status,tag,url_foto,fazenda_id_fazenda,pelagem_id_pelagem,proprietario_id_proprietario,raca_id_raca,situacao) \n" +
                     "\tvalues (default,'" + bovino.getDataInclusao() + "','" + bovino.getDataNascimento() + "','" + bovino.getGenero() + "','" + bovino.getMae() + "','" + bovino.getNomeBovino() + "','" + bovino.getPai() + "','" + bovino.getStatus() + "','" + bovino.getTag() + "','" + foto + "'," + bovino.getFazenda().getIdFazenda() + "," + bovino.getPelagem().getIdPelagem() + "," + bovino.getProprietario().getIdProprietario() + "," + bovino.getRaca().getIdRaca() + ",'Vivo'" + ")";
 
 
@@ -993,7 +993,7 @@ public class GestaoRespositoryBanco {
         try {
             Connection conexao = ConexaoFactory.criarConexao();
 
-            sql = "update bovino set data_nascimento = '" + bovino.getDataNascimento() + "',genero =" + bovino.getGenero() + ",status =" + bovino.getStatus() + ",mae = '" + bovino.getMae() + "',nome_bovino = '" + bovino.getNomeBovino() + "',pai='" + bovino.getPai() + "',fazenda_idfazenda = " + bovino.getFazenda().idFazenda + ",pelagem_idpelagem = " + bovino.getPelagem().getIdPelagem() + ",proprietario_idproprietario=" + bovino.getProprietario().getIdProprietario() + ",raca_idraca= " + bovino.getRaca().getIdRaca() + "where id_bovino =" + bovino.getIdBovino();
+            sql = "update bovino set data_nascimento = '" + bovino.getDataNascimento() + "',genero =" + bovino.getGenero() + ",status =" + bovino.getStatus() + ",mae = '" + bovino.getMae() + "',nome_bovino = '" + bovino.getNomeBovino() + "',pai='" + bovino.getPai() + "',fazenda_id_fazenda = " + bovino.getFazenda().getIdFazenda() + ",pelagem_id_pelagem = " + bovino.getPelagem().getIdPelagem() + ",proprietario_id_proprietario=" + bovino.getProprietario().getIdProprietario() + ",raca_id_raca= " + bovino.getRaca().getIdRaca() + "where id_bovino =" + bovino.getIdBovino();
 
 
             PreparedStatement ps;
@@ -1128,7 +1128,7 @@ public class GestaoRespositoryBanco {
         try {
             Connection conexao = ConexaoFactory.criarConexao();
 
-            sql = "select id_bovino,nome_bovino from bovino where ficha_matriz_idfichamatriz is not null and status = true order by ficha_matriz_idfichamatriz";
+            sql = "select id_bovino,nome_bovino from bovino where ficha_matriz_id_ficha_matriz is not null and status = true order by ficha_matriz_id_ficha_matriz";
 
 
             PreparedStatement ps;
@@ -1160,7 +1160,7 @@ public class GestaoRespositoryBanco {
         try {
             Connection conexao = ConexaoFactory.criarConexao();
 
-            sql = "select nome_bovino from bovino where ficha_matriz_idfichamatriz =" + id;
+            sql = "select nome_bovino from bovino where ficha_matriz_id_ficha_matriz =" + id;
 
 
             PreparedStatement ps;
