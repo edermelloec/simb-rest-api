@@ -8,7 +8,7 @@ import java.sql.SQLException;
 
 public class ConexaoFactory {
 
-    public static Connection criarConexao() {
+    public static Connection criarConexaoa() {
 
         //Crie uma conexao com o Banco
 

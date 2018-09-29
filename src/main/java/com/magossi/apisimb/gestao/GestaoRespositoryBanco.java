@@ -29,11 +29,12 @@ public class GestaoRespositoryBanco {
     String sql;
     String json = null;
 
+    Connection conexao = ConexaoFactory.criarConexaoa();
 
     public String prenhezTodos() {
 
         try {
-            Connection conexao = ConexaoFactory.criarConexao();
+
 
 
             sql = "select (select count(*) from resultado r where r.resultado = 'Cheia' ),count(*) from resultado";
@@ -54,7 +55,6 @@ public class GestaoRespositoryBanco {
             } else {
                 taxa = 0.0f;
             }
-            conexao.close();
             json = "[{\"fertilidade\":" + taxa + "}]";
         } catch (SQLException e) {
             // TODO Auto-generated catch block
@@ -71,7 +71,6 @@ public class GestaoRespositoryBanco {
         taxa = 0.0f;
 
         try {
-            Connection conexao = ConexaoFactory.criarConexao();
             PreparedStatement prepareStatement;
 
             sql = "select id_ficha_matriz from ficha_matriz where status = true order by id_ficha_matriz";
@@ -110,7 +109,6 @@ public class GestaoRespositoryBanco {
                 taxa = 0f;
             }
 
-            conexao.close();
             json = "[{\"fertilidade\":" + taxa + "}]";
         } catch (SQLException e) {
             // TODO Auto-generated catch block
@@ -124,7 +122,6 @@ public class GestaoRespositoryBanco {
         taxa = 0.0f;
 
         try {
-            Connection conexao = ConexaoFactory.criarConexao();
             PreparedStatement prepareStatement;
 
             sql = "select id_ficha_matriz from ficha_matriz where status = true order by id_ficha_matriz";
@@ -176,7 +173,6 @@ public class GestaoRespositoryBanco {
                 taxa = 0f;
             }
 
-            conexao.close();
             json = "[{\"fertilidade\":" + taxa + "}]";
         } catch (SQLException e) {
             // TODO Auto-generated catch block
@@ -190,7 +186,6 @@ public class GestaoRespositoryBanco {
     public String prenhezMult() {
         taxa = 0.0f;
         try {
-            Connection conexao = ConexaoFactory.criarConexao();
             PreparedStatement prepareStatement;
 
             sql = "select id_ficha_matriz from ficha_matriz where status = true order by id_ficha_matriz";
@@ -244,7 +239,6 @@ public class GestaoRespositoryBanco {
                 taxa = 0f;
             }
 
-            conexao.close();
             json = "[{\"fertilidade\":" + taxa + "}]";
         } catch (SQLException e) {
             // TODO Auto-generated catch block
@@ -258,7 +252,6 @@ public class GestaoRespositoryBanco {
     public String natalidadeTodos() {
         taxa = 0.0f;
         try {
-            Connection conexao = ConexaoFactory.criarConexao();
 
 
             sql = "select count(*),(select count(*) from parto p where p.status = 'Vivo') from parto";
@@ -277,7 +270,6 @@ public class GestaoRespositoryBanco {
             } else {
                 taxa = 0.0f;
             }
-            conexao.close();
             json = "[{\"fertilidade\":" + taxa + "}]";
         } catch (SQLException e) {
             // TODO Auto-generated catch block
@@ -293,7 +285,6 @@ public class GestaoRespositoryBanco {
     public String natalidadeNovilha() {
         taxa = 0.0f;
         try {
-            Connection conexao = ConexaoFactory.criarConexao();
             PreparedStatement prepareStatement;
 
             sql = "select id_ficha_matriz from ficha_matriz where status = true order by id_ficha_matriz";
@@ -342,7 +333,6 @@ public class GestaoRespositoryBanco {
                 taxa = 0f;
             }
 
-            conexao.close();
             json = "[{\"fertilidade\":" + taxa + "}]";
         } catch (SQLException e) {
             // TODO Auto-generated catch block
@@ -358,7 +348,6 @@ public class GestaoRespositoryBanco {
         taxa = 0.0f;
 
         try {
-            Connection conexao = ConexaoFactory.criarConexao();
             PreparedStatement prepareStatement;
 
             sql = "select id_ficha_matriz from ficha_matriz where status = true order by id_ficha_matriz";
@@ -412,7 +401,6 @@ public class GestaoRespositoryBanco {
                 taxa = 0f;
             }
 
-            conexao.close();
             json = "[{\"fertilidade\":" + taxa + "}]";
         } catch (SQLException e) {
             // TODO Auto-generated catch block
@@ -427,7 +415,6 @@ public class GestaoRespositoryBanco {
     public String natalidadeMult() {
         taxa = 0.0f;
         try {
-            Connection conexao = ConexaoFactory.criarConexao();
             PreparedStatement prepareStatement;
 
             sql = "select id_ficha_matriz from ficha_matriz where status = true order by id_ficha_matriz";
@@ -488,7 +475,6 @@ public class GestaoRespositoryBanco {
                 taxa = 0f;
             }
 
-            conexao.close();
             json = "[{\"fertilidade\":" + taxa + "}]";
         } catch (SQLException e) {
             // TODO Auto-generated catch block
@@ -503,7 +489,6 @@ public class GestaoRespositoryBanco {
     public String mediaPesoDesmama() {
         taxa = 0.0f;
         try {
-            Connection conexao = ConexaoFactory.criarConexao();
             PreparedStatement prepareStatement;
 
             sql = "select peso from desmama";
@@ -523,7 +508,7 @@ public class GestaoRespositoryBanco {
             } else {
                 taxa = 0f;
             }
-            conexao.close();
+
             json = "[{\"fertilidade\":" + taxa + "}]";
         } catch (SQLException e) {
             // TODO Auto-generated catch block
@@ -538,7 +523,7 @@ public class GestaoRespositoryBanco {
     public String mediaIdadeDesmama() {
         taxa = 0.0f;
         try {
-            Connection conexao = ConexaoFactory.criarConexao();
+
             PreparedStatement prepareStatement;
 
             sql = "select ((DATE(d.data_desmama)-DATE(b.data_nascimento))/30) from desmama d\n" +
@@ -561,7 +546,6 @@ public class GestaoRespositoryBanco {
                 taxa = 0f;
             }
 
-            conexao.close();
             json = "[{\"fertilidade\":" + taxa + "}]";
         } catch (SQLException e) {
             // TODO Auto-generated catch block
@@ -576,7 +560,7 @@ public class GestaoRespositoryBanco {
     public String idadePrimeiraCria(String bovino) {
 
         try {
-            Connection conexao = ConexaoFactory.criarConexao();
+
 
             sql = "SELECT min((DATE(p.data_parto)-DATE(b.data_nascimento))/30) AS DIASDECORRIDOS FROM bovino b\n" +
                     "\t\tinner join parto p on p.id_ficha_matriz=b.ficha_matriz_id_ficha_matriz\n" +
@@ -591,7 +575,6 @@ public class GestaoRespositoryBanco {
             result.next();
             taxa = result.getFloat(1);
 
-            conexao.close();
             json = "[{\"nome\": \"" + bovino + "\",\"fertilidade\": " + taxa + "}]";
         } catch (SQLException e) {
             // TODO Auto-generated catch block
@@ -607,7 +590,7 @@ public class GestaoRespositoryBanco {
     public String idadeDesmama(String bovino) {
 
         try {
-            Connection conexao = ConexaoFactory.criarConexao();
+
 
             sql = "select ((DATE(d.data_desmama)-DATE(b.data_nascimento))/30) from desmama d\n" +
                     "\t\t\tinner join bovino b on b.id_bovino=d.id_bovino\n" +
@@ -625,7 +608,6 @@ public class GestaoRespositoryBanco {
             } else {
                 taxa = 0f;
             }
-            conexao.close();
             json = "[{\"nome\": \"" + bovino + "\",\"fertilidade\": " + taxa + "}]";
         } catch (SQLException e) {
             // TODO Auto-generated catch block
@@ -640,7 +622,7 @@ public class GestaoRespositoryBanco {
 
     public String mortalidadeTotal() {
         try {
-            Connection conexao = ConexaoFactory.criarConexao();
+
 
             sql = "select count(*), (select count(*) from bovino where status = 't')from bovino where situacao='Morto'\n";
             PreparedStatement prepareStatement;
@@ -659,7 +641,7 @@ public class GestaoRespositoryBanco {
                 taxa = 0.0f;
             }
 
-            conexao.close();
+
             json = "[{\"fertilidade\":" + taxa + "}]";
         } catch (SQLException e) {
             // TODO Auto-generated catch block
@@ -674,7 +656,7 @@ public class GestaoRespositoryBanco {
 
     public String mortalidadePreParto() {
         try {
-            Connection conexao = ConexaoFactory.criarConexao();
+
 
             sql = "select count(*),(select count(*) from bovino where status = 't') as dias from bovino b where b.situacao = 'Morto' and  (DATE(data_falecimento) - DATE (data_nascimento)) ='0'";
             PreparedStatement prepareStatement;
@@ -691,7 +673,7 @@ public class GestaoRespositoryBanco {
             } else {
                 taxa = 0.0f;
             }
-            conexao.close();
+
             json = "[{\"fertilidade\":" + taxa + "}]";
         } catch (SQLException e) {
             // TODO Auto-generated catch block
@@ -706,7 +688,7 @@ public class GestaoRespositoryBanco {
 
     public String mortalideAdulto() {
         try {
-            Connection conexao = ConexaoFactory.criarConexao();
+
 
             sql = "select count(*),(select count(*) from bovino where status = 't') as dias from bovino b where b.situacao = 'Morto' and  (DATE(data_falecimento) - DATE (data_nascimento)) > '730'";
             PreparedStatement prepareStatement;
@@ -723,10 +705,6 @@ public class GestaoRespositoryBanco {
                 taxa = 0.0f;
             }
 
-
-            conexao.close();
-
-
             json = "[{\"fertilidade\":" + taxa + "}]";
         } catch (SQLException e) {
             // TODO Auto-generated catch block
@@ -741,7 +719,7 @@ public class GestaoRespositoryBanco {
 
     public String mortalideJovens() {
         try {
-            Connection conexao = ConexaoFactory.criarConexao();
+
 
             sql = "select count(*),(select count(*) from bovino where status = 't') as dias from bovino b where b.situacao = 'Morto' and  (DATE(data_falecimento) - DATE (data_nascimento)) >= '365' and  (DATE(data_falecimento) - DATE (data_nascimento)) <= '730'";
             PreparedStatement prepareStatement;
@@ -758,7 +736,6 @@ public class GestaoRespositoryBanco {
                 taxa = 0.0f;
             }
 
-            conexao.close();
             json = "[{\"fertilidade\":" + taxa + "}]";
         } catch (SQLException e) {
             // TODO Auto-generated catch block
@@ -773,7 +750,6 @@ public class GestaoRespositoryBanco {
 
     public String mortalideAteDesmama() {
         try {
-            Connection conexao = ConexaoFactory.criarConexao();
 
             sql = "select count(*),(select count(*) from bovino where status = 't') as dias from bovino b where b.situacao = 'Morto' and  (DATE(data_falecimento) - DATE (data_nascimento)) > '0' and  (DATE(data_falecimento) - DATE (data_nascimento)) < '365'";
             PreparedStatement prepareStatement;
@@ -789,7 +765,6 @@ public class GestaoRespositoryBanco {
             } else {
                 taxa = 0.0f;
             }
-            conexao.close();
             json = "[{\"fertilidade\":" + taxa + "}]";
         } catch (SQLException e) {
             // TODO Auto-generated catch block
@@ -804,7 +779,6 @@ public class GestaoRespositoryBanco {
 
     public String taxaDesmama() {
         try {
-            Connection conexao = ConexaoFactory.criarConexao();
 
             sql = "select (select count(*) from desmama),count(*) from resultado";
             PreparedStatement prepareStatement;
@@ -820,7 +794,6 @@ public class GestaoRespositoryBanco {
             } else {
                 taxa = 0.0f;
             }
-            conexao.close();
             json = "[{\"fertilidade\":" + taxa + "}]";
         } catch (SQLException e) {
             // TODO Auto-generated catch block
@@ -835,7 +808,6 @@ public class GestaoRespositoryBanco {
 
     public String taxaAbate() {
         try {
-            Connection conexao = ConexaoFactory.criarConexao();
 
             sql = "select (select count(*) from bovino where situacao = 'Abatido'),count(*) from bovino where status = 't'";
             PreparedStatement prepareStatement;
@@ -851,7 +823,6 @@ public class GestaoRespositoryBanco {
             } else {
                 taxa = 0.0f;
             }
-            conexao.close();
             json = "[{\"fertilidade\":" + taxa + "}]";
         } catch (SQLException e) {
             // TODO Auto-generated catch block
@@ -868,9 +839,6 @@ public class GestaoRespositoryBanco {
 
 
         try {
-            Connection conexao = ConexaoFactory.criarConexao();
-
-
             sql = "select (select count(*) as inicial from bovino b where DATE(data_inclusao) <= '" + dataInicial + "' )\n" +
                     "\t,count(*) as dois,(select count(*) as vendido from bovino where situacao = 'Vendido' and DATE(data_inclusao) >= '" + dataInicial + "' and DATE(data_inclusao) <= '" + dataFinal + "')\n" +
                     "\t\tfrom bovino where DATE(data_inclusao) >= '" + dataInicial + "' and DATE(data_inclusao) <= '" + dataFinal + "'";
@@ -893,7 +861,6 @@ public class GestaoRespositoryBanco {
             }
 
 
-            conexao.close();
             json = "[{\"nome\": \"" + dataInicial + "\",\"fertilidade\": " + taxa + "}]";
         } catch (SQLException e) {
             // TODO Auto-generated catch block
@@ -910,7 +877,6 @@ public class GestaoRespositoryBanco {
 
 
         try {
-            Connection conexao = ConexaoFactory.criarConexao();
 
             sql = "select (select count(*) as touro from ficha_touro where status=true),count(*) as vaca from ficha_matriz where status=true";
             PreparedStatement prepareStatement;
@@ -921,7 +887,7 @@ public class GestaoRespositoryBanco {
             result.next();
 
             json = "[{\"nome\": \"" + result.getInt(1) + " : " + result.getInt(2) + "\",\"fertilidade\": " + taxa + "}]";
-            conexao.close();
+
 
         } catch (SQLException e) {
             // TODO Auto-generated catch block
@@ -938,14 +904,12 @@ public class GestaoRespositoryBanco {
 
 
         try {
-            Connection conexao = ConexaoFactory.criarConexao();
 
             sql = "UPDATE bovino SET situacao = 'Vivo' WHERE id_bovino =" + a;
             PreparedStatement prepareStatement;
             prepareStatement = conexao.prepareStatement(sql);
             prepareStatement.execute();
 
-            conexao.close();
         } catch (SQLException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
@@ -963,7 +927,6 @@ public class GestaoRespositoryBanco {
         }
 
         try {
-            Connection conexao = ConexaoFactory.criarConexao();
 
             sql = "insert into bovino(id_bovino,data_inclusao,data_nascimento,genero,mae,nome_bovino,pai,status,tag,url_foto,fazenda_id_fazenda,pelagem_id_pelagem,proprietario_id_proprietario,raca_id_raca,situacao) \n" +
                     "\tvalues (default,'" + bovino.getDataInclusao() + "','" + bovino.getDataNascimento() + "','" + bovino.getGenero() + "','" + bovino.getMae() + "','" + bovino.getNomeBovino() + "','" + bovino.getPai() + "','" + bovino.getStatus() + "','" + bovino.getTag() + "','" + foto + "'," + bovino.getFazenda().getIdFazenda() + "," + bovino.getPelagem().getIdPelagem() + "," + bovino.getProprietario().getIdProprietario() + "," + bovino.getRaca().getIdRaca() + ",'Vivo'" + ")";
@@ -976,7 +939,6 @@ public class GestaoRespositoryBanco {
 
             ps.execute();
 
-            conexao.close();
         } catch (SQLException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
@@ -991,7 +953,6 @@ public class GestaoRespositoryBanco {
 
 
         try {
-            Connection conexao = ConexaoFactory.criarConexao();
 
             sql = "update bovino set data_nascimento = '" + bovino.getDataNascimento() + "',genero =" + bovino.getGenero() + ",status =" + bovino.getStatus() + ",mae = '" + bovino.getMae() + "',nome_bovino = '" + bovino.getNomeBovino() + "',pai='" + bovino.getPai() + "',fazenda_id_fazenda = " + bovino.getFazenda().getIdFazenda() + ",pelagem_id_pelagem = " + bovino.getPelagem().getIdPelagem() + ",proprietario_id_proprietario=" + bovino.getProprietario().getIdProprietario() + ",raca_id_raca= " + bovino.getRaca().getIdRaca() + "where id_bovino =" + bovino.getIdBovino();
 
@@ -1003,7 +964,6 @@ public class GestaoRespositoryBanco {
 
             ps.execute();
 
-            conexao.close();
         } catch (SQLException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
@@ -1017,7 +977,6 @@ public class GestaoRespositoryBanco {
 
 
         try {
-            Connection conexao = ConexaoFactory.criarConexao();
 
             sql = "insert into morto (id_morte, causa, data_morte, id_bovino, status)\n" +
                     "\tvalues (default, '" + morto.getCausa() + "', '" + morto.getDataMorte() + "'," + morto.getIdBovino() + ", " + true + ")";
@@ -1032,7 +991,6 @@ public class GestaoRespositoryBanco {
             sql = "UPDATE bovino set status = false, situacao = 'Morto', data_falecimento = '" + morto.getDataMorte() + "' where id_bovino = " + morto.getIdBovino();
             ps = conexao.prepareStatement(sql);
             ps.execute();
-            conexao.close();
         } catch (SQLException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
@@ -1046,7 +1004,6 @@ public class GestaoRespositoryBanco {
 
 
         try {
-            Connection conexao = ConexaoFactory.criarConexao();
 
             sql = "UPDATE bovino SET situacao = 'Vendido', status = false where id_bovino = " + id;
 
@@ -1058,7 +1015,6 @@ public class GestaoRespositoryBanco {
 
             ps.execute();
 
-            conexao.close();
         } catch (SQLException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
@@ -1072,7 +1028,6 @@ public class GestaoRespositoryBanco {
 
 
         try {
-            Connection conexao = ConexaoFactory.criarConexao();
 
             sql = "UPDATE bovino SET situacao = 'Abatido', status = false where id_bovino = " + id;
 
@@ -1084,7 +1039,6 @@ public class GestaoRespositoryBanco {
 
             ps.execute();
 
-            conexao.close();
         } catch (SQLException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
@@ -1098,7 +1052,6 @@ public class GestaoRespositoryBanco {
 
 
         try {
-            Connection conexao = ConexaoFactory.criarConexao();
 
             sql = " insert into desmama(id_desmama,data_desmama,status,id_bovino,id_ficha_matriz,peso)\n" +
                     "\tvalues (default,'" + desmama.getDataDesmama() + "','True','" + desmama.getIdBovino() + "','" + desmama.getIdFichaMatriz() + "','" + desmama.getPeso() + "')";
@@ -1111,7 +1064,6 @@ public class GestaoRespositoryBanco {
 
             ps.execute();
 
-            conexao.close();
         } catch (SQLException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
@@ -1126,7 +1078,6 @@ public class GestaoRespositoryBanco {
         List<Bovino> bovinos = new ArrayList<>();
 
         try {
-            Connection conexao = ConexaoFactory.criarConexao();
 
             sql = "select id_bovino,nome_bovino from bovino where ficha_matriz_id_ficha_matriz is not null and status = true order by ficha_matriz_id_ficha_matriz";
 
@@ -1144,7 +1095,6 @@ public class GestaoRespositoryBanco {
 
             }
 
-            conexao.close();
         } catch (SQLException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
@@ -1158,7 +1108,6 @@ public class GestaoRespositoryBanco {
         Bovino bovino = null;
 
         try {
-            Connection conexao = ConexaoFactory.criarConexao();
 
             sql = "select nome_bovino from bovino where ficha_matriz_id_ficha_matriz =" + id;
 
@@ -1173,7 +1122,6 @@ public class GestaoRespositoryBanco {
             bovino.setNomeBovino(result.getString(1));
 
 
-            conexao.close();
         } catch (SQLException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
@@ -1187,7 +1135,6 @@ public class GestaoRespositoryBanco {
         List<Bovino> bovinos = new ArrayList<>();
 
         try {
-            Connection conexao = ConexaoFactory.criarConexao();
             sql = "select id_bovino,nome_bovino from bovino where genero = true and status = true order by nome_bovino";
 
 
@@ -1203,7 +1150,6 @@ public class GestaoRespositoryBanco {
                 bovinos.add(bovino);
             }
 
-            conexao.close();
         } catch (SQLException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
@@ -1217,7 +1163,6 @@ public class GestaoRespositoryBanco {
 //        List<Bovino> bovinos = new ArrayList<>();
 //
 //        try {
-//            Connection conexao = ConexaoFactory.criarConexao();
 //            sql = "select id_bovino,nome_bovino from bovino where genero = false and status = true and ficha_matriz_idfichamatriz is null order by nome_bovino";
 //
 //
@@ -1233,7 +1178,6 @@ public class GestaoRespositoryBanco {
 //                bovinos.add(bovino);
 //            }
 //
-//            conexao.close();
 //        } catch (SQLException e) {
 //            // TODO Auto-generated catch block
 //            e.printStackTrace();
@@ -1247,7 +1191,6 @@ public class GestaoRespositoryBanco {
     public void salvarQtdParto(Integer id) {
         Integer qtdParto = 0;
         try {
-            Connection conexao = ConexaoFactory.criarConexao();
 
             sql = "select quant_parto from ficha_matriz where id_ficha_matriz = " + id;
             PreparedStatement prepareStatement;
@@ -1259,15 +1202,12 @@ public class GestaoRespositoryBanco {
 
             qtdParto = result.getInt(1);
 
-            conexao.close();
-
         } catch (SQLException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
 
         try {
-            Connection conexao = ConexaoFactory.criarConexao();
             if (qtdParto == 0) {
                 sql = "update ficha_matriz set quant_parto = 1 where id_ficha_matriz = " + id;
             } else {
@@ -1281,7 +1221,6 @@ public class GestaoRespositoryBanco {
 
             ps.execute();
 
-            conexao.close();
         } catch (SQLException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
@@ -1295,7 +1234,6 @@ public class GestaoRespositoryBanco {
 
 
         try {
-            Connection conexao = ConexaoFactory.criarConexao();
 
             sql = "insert into ficha_touro (id_ficha_touro, data_inclusao, id_bovino, status)\n" +
                     "\tvalues (default, '" + touro.getDataInclusao() + "', " + touro.getIdBovino() + "," + touro.getStatus() + ")";
@@ -1308,7 +1246,6 @@ public class GestaoRespositoryBanco {
 
             ps.execute();
 
-            conexao.close();
         } catch (SQLException e) {
 
             e.printStackTrace();
